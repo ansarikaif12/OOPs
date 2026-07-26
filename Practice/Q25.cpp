@@ -260,3 +260,160 @@ int main()
 // 1
 // 2
 // 3
+
+
+
+
+// 🎯 Q7
+// Code
+// #include <iostream>
+// using namespace std;
+
+// void fun()
+// {
+//     static int x = 10;
+//     x++;
+//     cout << x << " ";
+// }
+
+// int main()
+// {
+//     fun();
+//     fun();
+//     fun();
+// }
+// ✅ Output
+// 11 12 13
+// ✅ Reason
+// x ek static local variable hai.
+// Ye sirf ek baar create hota hai.
+// Har function call ke baad iski value retain rehti hai.
+// Isliye:
+// First call → 11
+// Second call → 12
+// Third call → 13
+// 🎯 Q8
+// Code
+// #include <iostream>
+// using namespace std;
+
+// class Test
+// {
+//     static int x;
+
+// public:
+//     Test()
+//     {
+//         x++;
+//     }
+
+//     static void show()
+//     {
+//         cout << x;
+//     }
+// };
+
+// int Test::x = 0;
+
+// int main()
+// {
+//     Test t1;
+//     Test t2;
+//     Test t3;
+
+//     Test::show();
+// }
+// ✅ Output
+// 3
+// ✅ Reason
+// x ek static data member hai.
+// Iski sirf ek copy hoti hai.
+// Har object constructor call par x++ hota hai.
+// 3 objects bane:
+// t1 → x = 1
+// t2 → x = 2
+// t3 → x = 3
+// show() same static variable print karta hai.
+// 🎯 Q9
+// Code
+// #include <iostream>
+// using namespace std;
+
+// class Demo
+// {
+//     static int count;
+
+// public:
+//     Demo()
+//     {
+//         count++;
+//     }
+
+//     ~Demo()
+//     {
+//         count--;
+//     }
+
+//     static void show()
+//     {
+//         cout << count << " ";
+//     }
+// };
+
+// int Demo::count = 0;
+
+// int main()
+// {
+//     Demo d1;
+
+//     {
+//         Demo d2;
+//         Demo d3;
+//         Demo::show();
+//     }
+
+//     Demo::show();
+// }
+// ✅ Output
+// 3 1
+// ✅ Reason
+// Step 1
+// Demo d1;
+// count = 1
+// Step 2
+// Demo d2;
+// Demo d3;
+// count = 3
+// Step 3
+// Demo::show();
+
+// Output:
+
+// 3
+// Step 4
+
+// Scope khatam hua.
+
+// d3 destroy
+
+// count = 2
+
+// d2 destroy
+
+// count = 1
+// Step 5
+// Demo::show();
+
+// Output:
+
+// 1
+// 🎯 Final Output
+// 3 1
+
+
+
+// 🔥 Interview Learning from These 3 Questions
+// Question	Main Concept
+// Q7	Static local variable is created once and retains its value between function calls.
+// Q8	Static data member has only one copy shared by all objects.
+// Q9	Constructors can increment a static counter, and destructors can decrement it to track active objects.
