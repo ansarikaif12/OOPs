@@ -39,37 +39,37 @@ int main()
 }
 
 
-Agar tum likho:
-void test()
-{
-    display();
-}
-❌ Compile Error
+// Agar tum likho:
+// void test()
+// {
+//     display();
+// }
+// ❌ Compile Error
 
-Why?
+// Why?
 
-Compiler ke paas do options hain.
+// Compiler ke paas do options hain.
 
-display()
+// display()
 
-↓
-A::display() ❓
+// ↓
+// A::display() ❓
 
-OR
+// OR
 
-B::display() ❓
+// B::display() ❓
 
-Compiler ko nahi pata kaunsa call kare.
+// Compiler ko nahi pata kaunsa call kare.
 
-Isliye error:
+// Isliye error:
 
-reference to 'display' is ambiguous
-Correct Solution
-void test()
-{
-    A::display();
-    B::display();
-}
+// reference to 'display' is ambiguous
+// Correct Solution
+// void test()
+// {
+//     A::display();
+//     B::display();
+// }
 
 // Output:
 
