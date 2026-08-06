@@ -168,3 +168,23 @@ int main()
 // Placement Answer:
 
 // A virtual destructor ensures that when a derived object is deleted using a base class pointer, both the derived class destructor and the base class destructor are called correctly. This prevents resource leaks and ensures proper cleanup.
+
+
+
+// Agar tumhara ? is line ke liye tha:
+
+// "Why virtual constructor is not possible?"
+
+// To short placement answer:
+
+// Constructor object banata hai. Object banne se pehle compiler ko hi decide karna padta hai ki kis class ka object banana hai. Virtual ka decision runtime par hota hai. Isliye constructor virtual nahi ho sakta.
+
+// Ek line me yaad rakho:
+// Constructor → Object create karta hai (Compile Time).
+// Virtual → Decision Runtime par hota hai.
+// Isliye Virtual Constructor ❌ Possible nahi hai.
+
+// Aur agar tumhara ? Static Constructor/Destructor ke liye tha:
+
+// Static Constructor ❌ C++ me exist hi nahi karta.
+// Static Destructor ❌ C++ me exist hi nahi karta.
